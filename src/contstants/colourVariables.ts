@@ -1,0 +1,9 @@
+export const darkGrey = "#8B959E";
+export const lightGrey = "#F8F8F8";
+export const purple = "#845EC2";
+export const fieldBorder = "#EEEEEE";
+export const underlineColour = "#FF6F91";
+export const charcoal = "#444444";
+export const white = "#FFFFFF";
+export const lightGreen = "#81C07B";
+export const semiPurple = "rgba(132, 94, 194, 0.1)";

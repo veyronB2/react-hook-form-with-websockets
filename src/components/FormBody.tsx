@@ -1,22 +1,24 @@
-import { Box } from '@mui/material';
-import ConfigurationForm from './ConfigurationForm';
-import CustomTabPanel from './CustomTabPanel';
-import React from 'react';
+import React, { FC } from "react";
+
+import { Box } from "@mui/material";
+import ConfigurationForm from "./ConfigurationForm";
+import TabPanel from "./TabPanel";
+import { white } from "../contstants/colourVariables";
 
 interface FormBodyProps {
     value: number;
 }
 
-const FormBody = ({ value }: FormBodyProps) => {
+const FormBody: FC<FormBodyProps> = ({ value }) => {
     return (
-        <Box sx={{ backgroundColor: "white" }}>
-            <Box sx={{ paddingLeft: "24px", paddingRight: "24px" }}>
-                <CustomTabPanel value={value} index={0}>
+        <Box sx={{ backgroundColor: white }}>
+            <Box sx={{ pl: "1.5rem", pr: "1.5rem" }}>
+                <TabPanel value={value} index={0}>
                     <ConfigurationForm />
-                </CustomTabPanel>
-                <CustomTabPanel value={value} index={1}>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
                     To be implemented
-                </CustomTabPanel>
+                </TabPanel>
             </Box>
         </Box>
 

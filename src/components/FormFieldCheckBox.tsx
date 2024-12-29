@@ -1,10 +1,11 @@
-import { Box, Checkbox, FormControl } from '@mui/material';
-import { Control, Controller, FieldValues, Path } from 'react-hook-form';
-import FormFieldLabel, { FormFieldLabelProps } from './FormFieldLabel';
-import { darkGrey, purple } from './Form';
+import * as colour from "../contstants/colourVariables";
 
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import React from 'react';
+import { Box, Checkbox, FormControl } from "@mui/material";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
+
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import React from "react";
 
 interface FormFieldCheckboxProps<T extends FieldValues> extends FormFieldLabelProps {
     expertMode?: boolean;
@@ -38,14 +39,14 @@ const FormFieldCheckbox = <T extends FieldValues>({
                                 checkedIcon={<CheckBoxIcon />}
                                 sx={{
                                     padding: 0,
-                                    color: darkGrey,
-                                    stroke: "#ffffff",
+                                    color: colour.darkGrey,
+                                    stroke: colour.white,
                                     strokeWidth: 1,
-                                    '&.Mui-checked': {
-                                        color: purple,
+                                    "&.Mui-checked": {
+                                        color: colour.purple,
                                     },
-                                    '& .MuiSvgIcon-root': {
-                                        transform: 'scale(0.95)',
+                                    "& .MuiSvgIcon-root": {
+                                        transform: "scale(0.95)",
                                     },
                                 }}
                             />

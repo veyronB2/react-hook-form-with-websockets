@@ -1,14 +1,16 @@
-import { Box, FormLabel, Tooltip } from '@mui/material';
+import { Box, FormLabel, Tooltip } from "@mui/material";
+import { darkGrey, white } from "../contstants/colourVariables";
 
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import React from 'react';
-import { darkGrey } from './Form';
+import React from "react";
+
+type TooltipPosition = "bottom-end" | "bottom-start" | "bottom" | "left-end" | "left-start" | "left" | "right-end" | "right-start" | "right" | "top-end" | "top-start" | "top";
 
 export interface FormFieldLabelProps {
     labelText: string;
     required?: boolean;
     tooltipTitle?: string;
-    tooltipPosition?: | 'bottom-end' | 'bottom-start' | 'bottom' | 'left-end' | 'left-start' | 'left' | 'right-end' | 'right-start' | 'right' | 'top-end' | 'top-start' | 'top';
+    tooltipPosition?: TooltipPosition;
 }
 
 const FormFieldLabel = ({ labelText, required = false, tooltipPosition = "top", tooltipTitle }: FormFieldLabelProps) => {
@@ -19,7 +21,7 @@ const FormFieldLabel = ({ labelText, required = false, tooltipPosition = "top", 
                 {required && <span style={{ color: darkGrey }}>*</span>}
             </FormLabel>
             <Tooltip title={tooltipTitle} placement={tooltipPosition}>
-                <InfoOutlinedIcon sx={{ color: darkGrey, height: "14px", width: "14px", strokeWidth: 1, stroke: "#ffffff" }} />
+                <InfoOutlinedIcon sx={{ color: darkGrey, height: "0.875rem", width: "0.875rem", strokeWidth: 1, stroke: white }} />
             </Tooltip>
         </Box>
     );

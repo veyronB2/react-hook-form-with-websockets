@@ -1,15 +1,16 @@
-import { Box, IconButton, Typography } from '@mui/material';
-import { darkGrey, lightGrey } from './Form';
+import { Box, IconButton, Typography } from "@mui/material";
+import React, { FC } from "react";
+import { darkGrey, lightGrey } from "../contstants/colourVariables";
 
 import CloseIcon from "@mui/icons-material/Close";
-import React from 'react';
+import { fontWeight } from "../contstants/styles";
 
 interface FormHeaderProps {
     headerText: string;
-    onClose: () => void;
+    onClose?: () => void;
 }
 
-const FormHeader = ({ headerText, onClose }: FormHeaderProps) => {
+const FormHeader: FC<FormHeaderProps> = ({ headerText, onClose }) => {
     return (
         <Box
             sx={{
@@ -18,10 +19,10 @@ const FormHeader = ({ headerText, onClose }: FormHeaderProps) => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                paddingTop: "40px"
+                paddingTop: "2.5rem"
             }}
         >
-            <Typography sx={{ fontWeight: "500", fontSize: "16px", lineHeight: "20px" }}>
+            <Typography sx={{ fontWeight: fontWeight.bolder, fontSize: "1rem", lineHeight: "1.25rem" }}>
                 {headerText}
             </Typography>
             <IconButton edge="end" color="inherit" aria-label="close" onClick={onClose}>

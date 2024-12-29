@@ -1,6 +1,6 @@
 import { Switch, styled } from "@mui/material";
 
-import { purple } from "../components/Form";
+import { purple } from "../contstants/colourVariables";
 
 export const ToggleSwitch = styled(Switch)(({ theme }) => ({
     width: 28,
@@ -18,7 +18,7 @@ export const ToggleSwitch = styled(Switch)(({ theme }) => ({
     '& .MuiSwitch-switchBase': {
         padding: 1,
         '&.Mui-checked': {
-            transform: 'translateX(12px)',
+            transform: 'translateX(0.75rem)',
             color: '#fff',
             '& + .MuiSwitch-track': {
                 opacity: 1,

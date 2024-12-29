@@ -1,10 +1,12 @@
-import { Button, Grid } from '@mui/material';
-import { Control, FieldValues, Path, UseFormSetValue } from 'react-hook-form';
+import { Button, Grid } from "@mui/material";
+import { Control, FieldValues, Path, UseFormSetValue } from "react-hook-form";
+import { purple, semiPurple } from "../contstants/colourVariables";
 
-import CustomNumberInput from './CustomNumberInput';
-import FormFieldSelect from './SelectInput';
-import React from 'react';
-import { detectObjectsOptions } from '../contstants/contstants';
+import CustomNumberInput from "./CustomNumberInput";
+import FormFieldSelect from "./SelectInput";
+import React from "react";
+import { detectObjectsOptions } from "../contstants/dummyData";
+import { fontWeight } from "../contstants/styles";
 
 interface VideoStreamFormProps<T extends FieldValues> {
     expertMode?: boolean;
@@ -87,12 +89,23 @@ const VideoStreamForm = <T extends FieldValues>({
             </Grid>
             <Grid item xs={12} container justifyContent="flex-end">
                 <Button
+                    disableRipple
                     variant="contained"
-
-                    style={{ color: "#845EC2", fontWeight: "400", marginTop: 0, fontSize: "12px", borderRadius: "3px", boxShadow: "none", textTransform: "none" }}
                     sx={{
-                        "&:hover": { backgroundColor: "rgba(132, 94, 194, 0.1)" },
-                        height: "27px", width: "100px", background: "rgba(132, 94, 194, 0.1)"
+                        "&:hover": {
+                            backgroundColor: semiPurple,
+                            boxShadow: 'none'
+                        },
+                        height: "1.688rem",
+                        width: "6.25rem",
+                        background: semiPurple,
+                        color: purple,
+                        fontWeight: fontWeight.normal,
+                        marginTop: 0,
+                        fontSize: "0.75rem",
+                        borderRadius: "0.188rem",
+                        boxShadow: "none",
+                        textTransform: "none"
                     }}
                 >
                     Copy to all

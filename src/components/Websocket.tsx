@@ -1,14 +1,13 @@
 import { ApolloProvider, useMutation } from '@apollo/client';
 import { Box, CardContent, Card as CardMui, Tab, Tabs } from '@mui/material';
-import { PUBLISH_NOTIFICATION, client, getNotificationMessages } from '../utilities/utils';
+import { PUBLISH_NOTIFICATION, client, websocketParam } from '../contstants/webSocket';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import CustomTabPanel from './CustomTabPanel';
 import NotificationMessage from './NotificationMessage';
 import NottificationSettings from './NottificationSettings';
-import { websocketParam } from '../contstants/contstants';
-
-const underlineColour = "#FF6F91";
+import TabPanel from './TabPanel';
+import { getNotificationMessages } from '../utilities/utils';
+import { underlineColour } from '../contstants/colourVariables';
 
 interface ServerResponse {
     sid: string;
@@ -78,8 +77,8 @@ const Websocket = () => {
     }, []);
 
     return (
-        <CardMui elevation={0} sx={{ width: "330px", borderRadius: 0 }}>
-            <CardContent style={{ padding: 30 }}>
+        <CardMui elevation={0} sx={{ width: "20.625rem", borderRadius: 0 }}>
+            <CardContent sx={{ padding: "1.875rem" }}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <Tabs
                         onChange={onTabChange}
@@ -91,20 +90,20 @@ const Websocket = () => {
                             }
                         }}
                     >
-                        <Tab label="Notifications" disableRipple sx={{ textTransform: "none", paddingLeft: 0 }} />
-                        <Tab label="Settings" disableRipple sx={{ textTransform: "none", paddingLeft: 0 }} />
+                        <Tab label="Notifications" disableRipple sx={{ textTransform: "none", pl: 0 }} />
+                        <Tab label="Settings" disableRipple sx={{ textTransform: "none", pl: 0 }} />
                     </Tabs>
                 </Box>
-                <CustomTabPanel value={tabValue} index={0}>
+                <TabPanel value={tabValue} index={0}>
                     {
                         notificationMessages.map(notification => (
                             <NotificationMessage key={notification} notification={notification} />
                         ))
                     }
-                </CustomTabPanel>
-                <CustomTabPanel value={tabValue} index={1}>
+                </TabPanel>
+                <TabPanel value={tabValue} index={1}>
                     <NottificationSettings />
-                </CustomTabPanel>
+                </TabPanel>
             </CardContent>
         </CardMui>
     );

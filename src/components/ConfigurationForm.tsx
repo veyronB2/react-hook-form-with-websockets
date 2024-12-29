@@ -1,36 +1,33 @@
-import { Box, FormControl, Stack, Typography } from '@mui/material';
-import { ConfigurationFormState, batchSizeOptions, defaultFormState, frameworkOptions, modelNameOptions, modelSourceOptions, processingUnitOptions } from '../contstants/contstants';
-import { Controller, FieldValues, useForm, useWatch } from 'react-hook-form';
+import * as colour from "../contstants/colourVariables";
+import * as dummyData from "../contstants/dummyData";
 
-import FormFieldAccordion from './FormFieldAccordion';
-import FormFieldCheckbox from './FormFieldCheckBox';
-import FormFieldText from './TextInput';
-import React from 'react';
-import SectionSeparator from './SectionSeparator';
-import SelectInput from './SelectInput';
-import TextInput from './TextInput';
-import { ToggleSwitch } from '../Overwrites/muiOverwrites';
-import { fieldBorder } from './Form';
+import { Box, FormControl, Stack, Typography } from "@mui/material";
+import { ConfigurationFormState, defaultFormState } from "../contstants/contstants";
+import { Controller, useForm, useWatch } from "react-hook-form";
+import { fontWeight, formHeader } from "../contstants/styles";
 
-const sectionStyles = {
-    display: "flex", flexDirection: "column", gap: "10px"
-};
+import FormFieldAccordion from "./FormFieldAccordion";
+import FormFieldCheckbox from "./FormFieldCheckBox";
+import React from "react";
+import SectionSeparator from "./SectionHeader";
+import SelectInput from "./SelectInput";
+import TextInput from "./TextInput";
+import { ToggleSwitch } from "../Overwrites/muiOverwrites";
 
-const ConfigurationForm = ({ }) => {
+const ConfigurationForm = () => {
     const { control, handleSubmit, setValue, watch, reset } = useForm<ConfigurationFormState>({
         defaultValues: defaultFormState
     });
 
     const expertMode = useWatch({ control, name: "expertMode" });
     const modelSource = useWatch({ control, name: "modelSettings.modelSource" });
-    console.log("### watch ###", watch());
 
     return (
-        <form style={{ width: "100%", backgroundColor: "white" }}>
-            <Box sx={{ ...sectionStyles }}>
-                <FormControl fullWidth sx={{ paddingTop: "20px" }}>
-                    <Stack direction="row" spacing={1} sx={{ alignItems: 'center', justifyContent: "end" }}>
-                        <Typography sx={{ fontWeight: "400", fontSize: "14px", color: "#444444" }}>Expert Mode</Typography>
+        <form className="configuration-form">
+            <Box sx={{ ...formHeader }}>
+                <FormControl fullWidth sx={{ pt: "1.25rem" }}>
+                    <Stack direction="row" spacing={1} sx={{ alignItems: "center", justifyContent: "end" }}>
+                        <Typography sx={{ fontWeight: fontWeight.normal, fontSize: "0.875rem", color: colour.charcoal }}>Expert Mode</Typography>
                         <Controller
                             control={control}
                             name="expertMode"
@@ -47,7 +44,7 @@ const ConfigurationForm = ({ }) => {
                     tooltipTitle="This is display name tooltip"
                 />
             </Box>
-            <Box sx={{ ...sectionStyles }}>
+            <Box sx={{ ...formHeader }}>
                 <SectionSeparator text="Model Settings" />
                 <SelectInput
                     control={control}
@@ -55,7 +52,7 @@ const ConfigurationForm = ({ }) => {
                     name="modelSettings.framework"
                     labelText="Framework"
                     tooltipTitle="This is framework tooltip"
-                    options={frameworkOptions}
+                    options={dummyData.frameworkOptions}
                     expertMode={expertMode}
                 />
                 <SelectInput
@@ -64,25 +61,24 @@ const ConfigurationForm = ({ }) => {
                     name="modelSettings.modelSource"
                     labelText="Model Source"
                     tooltipTitle="This is model source tooltip"
-                    options={modelSourceOptions}
+                    options={dummyData.modelSourceOptions}
                     expertMode={expertMode}
                 />
-
                 {
                     modelSource === "Custom Models" ?
-                        <Box sx={{ ...sectionStyles }}>
-                            <Box sx={{ borderLeft: `2px solid ${fieldBorder}`, paddingLeft: "10px" }}>
+                        <Box sx={{ ...formHeader }}>
+                            <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}`, pl: "0.625rem" }}>
                                 <SelectInput
                                     control={control}
                                     setValue={setValue}
                                     name="modelSettings.modelName"
                                     labelText="Model Name"
                                     tooltipTitle="This is model source tooltip"
-                                    options={modelNameOptions}
+                                    options={dummyData.modelNameOptions}
                                     expertMode={expertMode}
                                 />
                             </Box>
-                            <Box sx={{ borderLeft: `2px solid ${fieldBorder}`, paddingLeft: "10px" }}>
+                            <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}`, pl: "0.625rem" }}>
                                 <TextInput
                                     name="modelSettings.modelUrl"
                                     placeholder="https//..."
@@ -92,7 +88,7 @@ const ConfigurationForm = ({ }) => {
                                 />
                             </Box>
                         </Box> :
-                        <Box sx={{ borderLeft: `2px solid ${fieldBorder}` }}>
+                        <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}` }}>
                             <SelectInput
                                 control={control}
                                 setValue={setValue}
@@ -100,7 +96,7 @@ const ConfigurationForm = ({ }) => {
                                 labelText="Model Type"
                                 required={true}
                                 tooltipTitle="This is model type tooltip"
-                                options={modelNameOptions}
+                                options={dummyData.modelNameOptions}
                                 expertMode={expertMode}
                             />
                         </Box>
@@ -111,7 +107,7 @@ const ConfigurationForm = ({ }) => {
                     name="modelSettings.processingUnit"
                     labelText="Processing Unit"
                     tooltipTitle="This is processing unit tooltip"
-                    options={processingUnitOptions}
+                    options={dummyData.processingUnitOptions}
                     expertMode={expertMode}
                     tagOptions={true}
                 />
@@ -121,13 +117,12 @@ const ConfigurationForm = ({ }) => {
                     name="modelSettings.batchSize"
                     labelText="Batch Size"
                     tooltipTitle="This is batch size tooltip"
-                    options={batchSizeOptions}
+                    options={dummyData.batchSizeOptions}
                     required={true}
                     expertMode={expertMode}
                 />
             </Box>
-
-            <Box sx={{ ...sectionStyles, paddingBottom: "20px" }}>
+            <Box sx={{ ...formHeader, pb: "1.25rem" }}>
                 <SectionSeparator text="Detection Settings" />
                 <FormFieldAccordion
                     control={control}
@@ -178,8 +173,6 @@ const ConfigurationForm = ({ }) => {
                     expertMode={expertMode}
                 />
             </Box>
-
-
         </form >
     );
 };

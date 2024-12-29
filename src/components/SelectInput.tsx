@@ -1,10 +1,11 @@
-import { Box, FormControl, MenuItem, Select, TextFieldVariants } from '@mui/material';
-import { Control, Controller, FieldValues, Path, UseFormSetValue } from 'react-hook-form';
-import FormFieldLabel, { FormFieldLabelProps } from './FormFieldLabel';
-import { fieldBorder, purple } from './Form';
+import * as colour from "../contstants/colourVariables";
+
+import { Box, FormControl, MenuItem, Select, TextFieldVariants } from "@mui/material";
+import { Control, Controller, FieldValues, Path, UseFormSetValue } from "react-hook-form";
+import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
 
 import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
-import React from 'react';
+import React from "react";
 
 interface FormFieldSelectProps<T extends FieldValues> extends FormFieldLabelProps {
     control: Control<T, any>;
@@ -52,14 +53,14 @@ const SelectInput = <T extends FieldValues>({
                                     variant={variant}
                                     {...field}
                                     value={field.value}
-                                    style={{ height: "31px", fontSize: "14px", borderRadius: "3px", width: "311px" }}
                                     sx={{
+                                        height: "1.938rem", fontSize: "0.875rem", borderRadius: "0.188rem", width: "19.438rem",
                                         ".MuiOutlinedInput-notchedOutline": {
-                                            borderColor: fieldBorder,
+                                            borderColor: colour.fieldBorder,
                                         },
                                         "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                                            borderColor: fieldBorder,
-                                            borderWidth: "1px"
+                                            borderColor: colour.fieldBorder,
+                                            borderWidth: "0.063rem"
                                         },
                                     }}
                                     onChange={(event) => {
@@ -71,18 +72,18 @@ const SelectInput = <T extends FieldValues>({
                                         <MenuItem
                                             key={option}
                                             value={option}
-                                            style={{ fontSize: "14px" }}
+                                            sx={{ fontSize: "0.875rem" }}
                                         >
                                             {
                                                 tagOptions ?
                                                     <Box component="span" sx={{
-                                                        fontSize: "12px",
+                                                        fontSize: "0.75rem",
                                                         display: "inline-block",
-                                                        backgroundColor: purple,
-                                                        color: "white",
-                                                        padding: "1px 5px",
-                                                        borderRadius: "3px",
-                                                        marginLeft: "-10px",
+                                                        backgroundColor: colour.purple,
+                                                        color: colour.white,
+                                                        padding: "0.063rem 0.313rem",
+                                                        borderRadius: "0.188rem",
+                                                        marginLeft: "-0.625rem",
                                                     }}>
                                                         {option}
                                                     </Box> : option

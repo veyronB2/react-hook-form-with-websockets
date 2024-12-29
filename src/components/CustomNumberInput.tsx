@@ -1,22 +1,23 @@
-import { Control, Controller, FieldValues, Path } from 'react-hook-form';
-import FormFieldLabel, { FormFieldLabelProps } from './FormFieldLabel';
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
 
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import { Box } from '@mui/material';
-import React from 'react';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import { Box } from "@mui/material";
+import React from "react";
 
 interface CustomNumberInputProps<T extends FieldValues> extends FormFieldLabelProps {
     labelText: string;
     control: Control<T, any>;
     name: Path<T>;
     expertMode: boolean;
+    required?: boolean;
 }
 
 const CustomNumberInput = <T extends FieldValues>({ labelText, control, name, required, expertMode }: CustomNumberInputProps<T>) => {
     if (!required || (required && expertMode)) {
         return (
-            <Box className="container">
+            <div className="container">
                 <FormFieldLabel labelText={labelText} required={required} />
                 <Controller
                     control={control}
@@ -34,7 +35,7 @@ const CustomNumberInput = <T extends FieldValues>({ labelText, control, name, re
                         </Box>
                     )}
                 />
-            </Box>
+            </div>
         );
     }
     return <></>;

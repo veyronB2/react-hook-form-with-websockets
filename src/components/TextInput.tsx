@@ -1,13 +1,13 @@
-import { Box, FormControl, TextField, TextFieldVariants } from '@mui/material';
-import { Control, Controller, FieldValues, Path } from 'react-hook-form';
-import FormFieldLabel, { FormFieldLabelProps } from './FormFieldLabel';
+import { Box, FormControl, TextField, TextFieldVariants } from "@mui/material";
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
 
-import React from 'react';
+import React from "react";
 
 interface FormFieldTextProps<T extends FieldValues> extends FormFieldLabelProps {
     control: Control<T, any>;
     variant?: TextFieldVariants;
-    margin?: 'dense' | 'normal' | 'none';
+    margin?: "dense" | "normal" | "none";
     expertMode?: boolean;
     name: Path<T>;
     placeholder?: string;

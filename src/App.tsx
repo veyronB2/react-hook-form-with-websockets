@@ -1,10 +1,13 @@
 import "../src/styles/styles.css";
 
+import * as colour from "./contstants/colourVariables";
+
 import { Box, Button, ThemeProvider, createTheme, useTheme } from '@mui/material';
-import Form, { darkGrey, fieldBorder } from './components/Form';
 import React, { useCallback, useState } from 'react';
 
+import Form from './components/Form';
 import WebSocketConnection from "./components/Websocket";
+import { fontWeight } from "./contstants/styles";
 
 function App() {
   const [showForm, setShowForm] = useState(true);
@@ -19,7 +22,7 @@ function App() {
         styleOverrides: {
           root: {
             '&:hover .MuiOutlinedInput-notchedOutline': {
-              borderColor: fieldBorder,
+              borderColor: colour.fieldBorder,
             },
           }
         }
@@ -29,18 +32,18 @@ function App() {
           root: {
             '& .MuiInputBase-root': {
               '& fieldset': {
-                borderColor: fieldBorder,
+                borderColor: colour.fieldBorder,
               },
               '&.Mui-focused fieldset': {
-                borderColor: fieldBorder,
-                borderWidth: "1px"
+                borderColor: colour.fieldBorder,
+                borderWidth: "0.063rem"
               },
-              height: '31px',
-              width: '311px',
-              borderRadius: '3px',
-              fontSize: "14px",
-              fontWeight: "400",
-              lineHeight: "28px"
+              height: '1.938rem',
+              width: '19.438rem',
+              borderRadius: '0.188rem',
+              fontSize: "0.875rem",
+              fontWeight: fontWeight.normal,
+              lineHeight: "1.75rem"
             },
           }
         },
@@ -48,10 +51,10 @@ function App() {
       MuiFormLabel: {
         styleOverrides: {
           root: {
-            marginRight: "5px",
-            fontSize: "14px",
-            lineHeight: "17px",
-            color: darkGrey
+            marginRight: "0.313rem",
+            fontSize: "0.875rem",
+            lineHeight: "1.063rem",
+            color: colour.darkGrey
           }
         },
       },
@@ -62,12 +65,12 @@ function App() {
         styleOverrides: {
           root: {
             textTransform: 'none',
-            fontSize: "14px",
-            lineHeight: "20px",
-            color: darkGrey,
+            fontSize: "0.875rem",
+            lineHeight: "1.25rem",
+            color: colour.darkGrey,
             "&.Mui-selected": {
-              color: "#444444",
-              fontWeight: "500",
+              color: colour.charcoal,
+              fontWeight: fontWeight.bolder,
             },
           }
         }
@@ -107,10 +110,7 @@ function App() {
         {
           showWebsockets && <WebSocketConnection />
         }
-
       </ThemeProvider>
-
-
     </>
   );
 }

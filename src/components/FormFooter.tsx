@@ -1,8 +1,8 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button } from "@mui/material";
+import React, { FC } from "react";
+import { lightGreen, lightGrey, white } from "../contstants/colourVariables";
 
-import React from 'react';
-import { getButtonStyles } from '../utilities/utils';
-import { lightGrey } from './Form';
+import { getButtonStyles } from "../utilities/utils";
 
 interface FormFooterProps {
     onDelete: () => void;
@@ -10,23 +10,22 @@ interface FormFooterProps {
     onApply: () => void;
 }
 
-const FormFooter = ({ onDelete, onCancel, onApply }: FormFooterProps) => {
+const FormFooter: FC<FormFooterProps> = ({ onDelete, onCancel, onApply }) => {
     return (
         <Box sx={{
-            paddingLeft: "24px",
-            height: "66px",
+            paddingLeft: "1.5rem",
+            height: "4.125rem",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderTop: `2px solid ${lightGrey}`,
-            background: "white",
+            borderTop: `0.125rem solid ${lightGrey}`,
+            background: white,
         }}>
 
             <Button
                 disableRipple
                 onClick={onDelete}
                 sx={getButtonStyles()}
-                style={{ justifyContent: "flex-start" }}
             >
                 Delete
             </Button>
@@ -36,15 +35,13 @@ const FormFooter = ({ onDelete, onCancel, onApply }: FormFooterProps) => {
                     disableRipple
                     onClick={onCancel}
                     sx={getButtonStyles()}
-                    style={{ justifyContent: "flex-start" }}
                 >
                     Cancel
                 </Button>
                 <Button
                     disableRipple
                     onClick={onApply}
-                    sx={getButtonStyles({ btnColour: "#81C07B" })}
-                    style={{ justifyContent: "flex-start" }}
+                    sx={getButtonStyles({ btnColour: lightGreen })}
                 >
                     Apply
                 </Button>
