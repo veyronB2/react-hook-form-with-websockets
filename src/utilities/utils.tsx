@@ -15,6 +15,15 @@ export const getButtonStyles = ({ btnColour = darkGrey, fontSize = "0.875rem" }:
     };
 };
 
+export const getTabIndicatorProps = (colour: string, width: string) => {
+    return {
+        style: {
+            backgroundColor: colour,
+            width: width,
+        }
+    };
+};
+
 export interface Notification {
     message: string;
     payload: string;
@@ -26,4 +35,9 @@ export const getNotificationMessages = (data: (string | Notification)[]) => {
         .filter((item): item is Notification => typeof item === "object" && item !== null && "message" in item)
         .map(item => item.message);
     return messages;
+};
+
+//TODO: unit test
+export const stringToNumber = (value: string) => {
+    return Number(value) || "";
 };

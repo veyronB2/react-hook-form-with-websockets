@@ -2,11 +2,11 @@ import { ApolloProvider, useMutation } from '@apollo/client';
 import { Box, CardContent, Card as CardMui, Tab, Tabs } from '@mui/material';
 import { PUBLISH_NOTIFICATION, client, websocketParam } from '../contstants/webSocket';
 import React, { useCallback, useEffect, useState } from 'react';
+import { getNotificationMessages, getTabIndicatorProps } from '../utilities/utils';
 
 import NotificationMessage from './NotificationMessage';
 import NottificationSettings from './NottificationSettings';
 import TabPanel from './TabPanel';
-import { getNotificationMessages } from '../utilities/utils';
 import { underlineColour } from '../contstants/colourVariables';
 
 interface ServerResponse {
@@ -35,6 +35,7 @@ const Websocket = () => {
                 const messages = getNotificationMessages(parsedPayload);
                 setNotificationMessaged(messages);
             }
+
             if (event.data.startsWith("0")) {
                 const payload = event.data.substring(1);
                 const parsedData: ServerResponse = JSON.parse(payload);
@@ -83,12 +84,7 @@ const Websocket = () => {
                     <Tabs
                         onChange={onTabChange}
                         value={tabValue}
-                        TabIndicatorProps={{
-                            style: {
-                                backgroundColor: underlineColour,
-                                width: "81px",
-                            }
-                        }}
+                        TabIndicatorProps={getTabIndicatorProps(underlineColour, "5.063rem")}
                     >
                         <Tab label="Notifications" disableRipple sx={{ textTransform: "none", pl: 0 }} />
                         <Tab label="Settings" disableRipple sx={{ textTransform: "none", pl: 0 }} />

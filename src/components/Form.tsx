@@ -6,6 +6,7 @@ import React, { useCallback, useState } from "react";
 import FormBody from "./FormBody";
 import FormFooter from "./FormFooter";
 import FormHeader from "./FormHeader";
+import { getTabIndicatorProps } from "../utilities/utils";
 
 interface FormProps {
     headerText?: string;
@@ -58,7 +59,7 @@ const Form = ({ headerText, footer = false, onCloseClick }: FormProps) => {
                 }
                 <Tabs
                     sx={{ backgroundColor: colour.lightGrey, borderBottom: "none" }}
-                    TabIndicatorProps={{ style: { backgroundColor: colour.purple, width: "5.063rem" } }}
+                    TabIndicatorProps={getTabIndicatorProps(colour.purple, "5.063rem")}
                     value={tabValue}
                     onChange={onTabChange}
                 >

@@ -4,15 +4,16 @@ import * as dummyData from "../contstants/dummyData";
 import { Box, FormControl, Stack, Typography } from "@mui/material";
 import { ConfigurationFormState, defaultFormState } from "../contstants/contstants";
 import { Controller, useForm, useWatch } from "react-hook-form";
-import { fontWeight, formHeader } from "../contstants/styles";
 
 import FormFieldAccordion from "./FormFieldAccordion";
 import FormFieldCheckbox from "./FormFieldCheckBox";
 import React from "react";
-import SectionSeparator from "./SectionHeader";
+import SectionHeader from "./SectionHeader";
+import SectionWrapper from "./SectionWrapper";
 import SelectInput from "./SelectInput";
 import TextInput from "./TextInput";
 import { ToggleSwitch } from "../Overwrites/muiOverwrites";
+import { fontWeight } from "../contstants/styles";
 
 const ConfigurationForm = () => {
     const { control, handleSubmit, setValue, watch, reset } = useForm<ConfigurationFormState>({
@@ -24,7 +25,7 @@ const ConfigurationForm = () => {
 
     return (
         <form className="configuration-form">
-            <Box sx={{ ...formHeader }}>
+            <SectionWrapper>
                 <FormControl fullWidth sx={{ pt: "1.25rem" }}>
                     <Stack direction="row" spacing={1} sx={{ alignItems: "center", justifyContent: "end" }}>
                         <Typography sx={{ fontWeight: fontWeight.normal, fontSize: "0.875rem", color: colour.charcoal }}>Expert Mode</Typography>
@@ -43,9 +44,9 @@ const ConfigurationForm = () => {
                     labelText="Display Name"
                     tooltipTitle="This is display name tooltip"
                 />
-            </Box>
-            <Box sx={{ ...formHeader }}>
-                <SectionSeparator text="Model Settings" />
+            </SectionWrapper>
+            <SectionWrapper>
+                <SectionHeader text="Model Settings" />
                 <SelectInput
                     control={control}
                     setValue={setValue}
@@ -66,7 +67,7 @@ const ConfigurationForm = () => {
                 />
                 {
                     modelSource === "Custom Models" ?
-                        <Box sx={{ ...formHeader }}>
+                        <SectionWrapper>
                             <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}`, pl: "0.625rem" }}>
                                 <SelectInput
                                     control={control}
@@ -87,19 +88,21 @@ const ConfigurationForm = () => {
                                     tooltipTitle="This is model URL tooltip"
                                 />
                             </Box>
-                        </Box> :
-                        <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}` }}>
-                            <SelectInput
-                                control={control}
-                                setValue={setValue}
-                                name="modelSettings.modelType"
-                                labelText="Model Type"
-                                required={true}
-                                tooltipTitle="This is model type tooltip"
-                                options={dummyData.modelNameOptions}
-                                expertMode={expertMode}
-                            />
-                        </Box>
+                        </SectionWrapper> :
+                        <SectionWrapper>
+                            <Box sx={{ borderLeft: `0.125rem solid ${colour.fieldBorder}` }}>
+                                <SelectInput
+                                    control={control}
+                                    setValue={setValue}
+                                    name="modelSettings.modelType"
+                                    labelText="Model Type"
+                                    required={true}
+                                    tooltipTitle="This is model type tooltip"
+                                    options={dummyData.modelNameOptions}
+                                    expertMode={expertMode}
+                                />
+                            </Box>
+                        </SectionWrapper>
                 }
                 <SelectInput
                     control={control}
@@ -121,9 +124,9 @@ const ConfigurationForm = () => {
                     required={true}
                     expertMode={expertMode}
                 />
-            </Box>
-            <Box sx={{ ...formHeader, pb: "1.25rem" }}>
-                <SectionSeparator text="Detection Settings" />
+            </SectionWrapper>
+            <SectionWrapper sx={{ pb: "1.25rem" }}>
+                <SectionHeader text="Detection Settings" />
                 <FormFieldAccordion
                     control={control}
                     setValue={setValue}
@@ -172,7 +175,7 @@ const ConfigurationForm = () => {
                     tooltipPosition="right"
                     expertMode={expertMode}
                 />
-            </Box>
+            </SectionWrapper>
         </form >
     );
 };
