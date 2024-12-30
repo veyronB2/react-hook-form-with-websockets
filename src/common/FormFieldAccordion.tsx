@@ -5,7 +5,7 @@ import { Control, FieldValues, UseFormSetValue } from "react-hook-form";
 
 import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
 import React from "react";
-import VideoStreamForm from "./VideoStreamForm";
+import VideoStreamForm from "../components/VideoStreamForm";
 
 interface FormFieldAccordionProps<T extends FieldValues> {
     summaryTitle: string;

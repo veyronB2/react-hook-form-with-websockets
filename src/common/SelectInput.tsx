@@ -42,7 +42,7 @@ const SelectInput = <T extends FieldValues>({
                         tooltipTitle={tooltipTitle}
                     />
                 }
-                <Box>
+                <div>
                     <FormControl fullWidth>
                         <Controller
                             control={control}
@@ -76,15 +76,17 @@ const SelectInput = <T extends FieldValues>({
                                         >
                                             {
                                                 tagOptions ?
-                                                    <Box component="span" sx={{
-                                                        fontSize: "0.75rem",
-                                                        display: "inline-block",
-                                                        backgroundColor: colour.purple,
-                                                        color: colour.white,
-                                                        padding: "0.063rem 0.313rem",
-                                                        borderRadius: "0.188rem",
-                                                        marginLeft: "-0.625rem",
-                                                    }}>
+                                                    <Box
+                                                        component="span"
+                                                        sx={{
+                                                            fontSize: "0.75rem",
+                                                            display: "inline-block",
+                                                            backgroundColor: colour.purple,
+                                                            color: colour.white,
+                                                            padding: "0.063rem 0.313rem",
+                                                            borderRadius: "0.188rem",
+                                                            marginLeft: "-0.625rem",
+                                                        }}>
                                                         {option}
                                                     </Box> : option
                                             }
@@ -94,7 +96,7 @@ const SelectInput = <T extends FieldValues>({
                             )}
                         />
                     </FormControl>
-                </Box>
+                </div>
             </Box>
         );
     }

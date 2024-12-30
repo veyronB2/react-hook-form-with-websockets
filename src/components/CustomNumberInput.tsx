@@ -1,6 +1,6 @@
 import { Box, TextField } from "@mui/material";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
-import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
+import FormFieldLabel, { FormFieldLabelProps } from "../common/FormFieldLabel";
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";

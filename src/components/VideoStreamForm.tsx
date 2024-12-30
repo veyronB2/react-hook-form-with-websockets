@@ -3,8 +3,8 @@ import { Control, FieldValues, Path, UseFormSetValue } from "react-hook-form";
 import { purple, semiPurple } from "../contstants/colourVariables";
 
 import CustomNumberInput from "./CustomNumberInput";
-import FormFieldSelect from "./SelectInput";
 import React from "react";
+import SelectInput from "../common/SelectInput";
 import { detectObjectsOptions } from "../contstants/dummyData";
 import { fontWeight } from "../contstants/styles";
 
@@ -24,7 +24,7 @@ const VideoStreamForm = <T extends FieldValues>({
     return (
         <Grid container spacing={1} columnSpacing={4}>
             <Grid item xs={12}>
-                <FormFieldSelect
+                <SelectInput
                     control={control}
                     setValue={setValue}
                     name={`detectionSettings.${name}.detectObjects` as Path<T>}

@@ -5,13 +5,13 @@ import { Box, FormControl, Stack, Typography } from "@mui/material";
 import { ConfigurationFormState, defaultFormState } from "../contstants/contstants";
 import { Controller, useForm, useWatch } from "react-hook-form";
 
-import FormFieldAccordion from "./FormFieldAccordion";
-import FormFieldCheckbox from "./FormFieldCheckBox";
+import FormFieldAccordion from "../common/FormFieldAccordion";
+import FormFieldCheckbox from "../common/FormFieldCheckBox";
 import React from "react";
 import SectionHeader from "./SectionHeader";
-import SectionWrapper from "./SectionWrapper";
-import SelectInput from "./SelectInput";
-import TextInput from "./TextInput";
+import SectionWrapper from "../common/SectionWrapper";
+import SelectInput from "../common/SelectInput";
+import TextInput from "../common/TextInput";
 import { ToggleSwitch } from "../Overwrites/muiOverwrites";
 import { fontWeight } from "../contstants/styles";
 

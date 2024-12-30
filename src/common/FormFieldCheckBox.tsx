@@ -2,7 +2,7 @@ import * as colour from "../contstants/colourVariables";
 
 import { Box, Checkbox, FormControl } from "@mui/material";
 import { Control, Controller, FieldValues, Path } from "react-hook-form";
-import FormFieldLabel, { FormFieldLabelProps } from "./FormFieldLabel";
+import FormFieldLabel, { FormFieldLabelProps } from "../common/FormFieldLabel";
 
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import React from "react";

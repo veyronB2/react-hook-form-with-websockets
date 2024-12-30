@@ -21,7 +21,6 @@ const FormFooter: FC<FormFooterProps> = ({ onDelete, onCancel, onApply }) => {
             borderTop: `0.125rem solid ${lightGrey}`,
             background: white,
         }}>
-
             <Button
                 disableRipple
                 onClick={onDelete}
@@ -30,7 +29,7 @@ const FormFooter: FC<FormFooterProps> = ({ onDelete, onCancel, onApply }) => {
                 Delete
             </Button>
 
-            <Box>
+            <div>
                 <Button
                     disableRipple
                     onClick={onCancel}
@@ -45,7 +44,7 @@ const FormFooter: FC<FormFooterProps> = ({ onDelete, onCancel, onApply }) => {
                 >
                     Apply
                 </Button>
-            </Box>
+            </div>
         </Box>
     );
 };

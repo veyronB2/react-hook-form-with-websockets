@@ -6,7 +6,7 @@ import { getNotificationMessages, getTabIndicatorProps } from '../utilities/util
 
 import NotificationMessage from './NotificationMessage';
 import NottificationSettings from './NottificationSettings';
-import TabPanel from './TabPanel';
+import TabPanel from '../common/TabPanel';
 import { underlineColour } from '../contstants/colourVariables';
 
 interface ServerResponse {

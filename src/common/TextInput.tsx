@@ -37,7 +37,7 @@ const TextInput = <T extends FieldValues>({
                             tooltipTitle={tooltipTitle}
                         />
                     }
-                    <Box>
+                    <div>
                         <Controller
                             control={control}
                             name={name}
@@ -50,7 +50,7 @@ const TextInput = <T extends FieldValues>({
                                 />
                             )}
                         />
-                    </Box>
+                    </div>
                 </Box>
             </FormControl>
         );

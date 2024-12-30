@@ -4,7 +4,7 @@ import { Box, IconButton, Typography } from "@mui/material";
 import React, { FC } from "react";
 
 import CircleIcon from "@mui/icons-material/Circle";
-import CustomIcon from "./CustomCubeIcon";
+import CubeIcon from "./icons/CustomCubeIcon";
 
 interface NotificationMessageProps {
     notification: string;
@@ -16,7 +16,7 @@ const NotificationMessage: FC<NotificationMessageProps> = ({ notification }) => 
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <IconButton>
-                        <CustomIcon sx={{ color: colour.darkGrey, fontSize: "0.875rem" }} />
+                        <CubeIcon sx={{ color: colour.darkGrey, fontSize: "0.875rem" }} />
                     </IconButton>
                     <Typography sx={{ fontSize: "0.75rem", color: colour.darkGrey }}>
                         Application
@@ -28,20 +28,16 @@ const NotificationMessage: FC<NotificationMessageProps> = ({ notification }) => 
                         2 mins ago
                     </Typography>
                 </Box>
-                <Box>
-                    <CircleIcon
-                        sx={{
-                            color: colour.underlineColour,
-                            fontSize: "0.438rem"
-                        }}
-                    />
-                </Box>
+                <CircleIcon
+                    sx={{
+                        color: colour.underlineColour,
+                        fontSize: "0.438rem"
+                    }}
+                />
             </Box>
-            <Box >
-                <Typography gutterBottom sx={{ fontSize: "0.875rem", lineHeight: "1.313rem" }}>
-                    {notification}
-                </Typography>
-            </Box>
+            <Typography gutterBottom sx={{ fontSize: "0.875rem", lineHeight: "1.313rem" }}>
+                {notification}
+            </Typography>
         </Box>
     );
 };
